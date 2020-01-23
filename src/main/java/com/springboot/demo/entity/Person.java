@@ -2,8 +2,15 @@ package com.springboot.demo.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Person {
-	private long id;
+	@Id
+	@GeneratedValue
+	private int id;
 	private String name;
 	private String location;
 	private Date birth_Date;
@@ -19,8 +26,15 @@ public class Person {
 		this.location = location;
 		this.birth_Date = birth_Date;
 	}
+	
+	public Person(String name, String location, Date birth_Date) {
+		super();
+		this.name = name;
+		this.location = location;
+		this.birth_Date = birth_Date;
+	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
