@@ -3,7 +3,7 @@ package com.springboot.demo.entity;
 import java.util.Date;
 
 public class Person {
-	private int id;
+	private long id;
 	private String name;
 	private String location;
 	private Date birth_Date;
@@ -20,7 +20,7 @@ public class Person {
 		this.birth_Date = birth_Date;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

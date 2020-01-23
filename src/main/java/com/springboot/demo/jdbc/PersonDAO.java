@@ -1,5 +1,6 @@
 package com.springboot.demo.jdbc;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,17 @@ public class PersonDAO {
 	
 	public int deleteById(int id) {
 		return jdbcTemplate.update("Delete from Person where id=?", new Object[] {id});
+	}
+	
+	public int insert(Person person) {
+		return jdbcTemplate.update("Insert into Person(id, name, location, birth_date)" + " values (?, ?, ?, ?)", 
+				new Object[] {person.getId(), person.getName(), person.getLocation(), new Timestamp(person.getBirth_Date().getTime()) });
+	}
+	
+	public int update(Person person) {
+		return jdbcTemplate.update("Update Person " + " set name = ?, location = ?, birth_date=? " 
+				+ " where id = ?",
+				new Object[] {person.getName(), person.getLocation(), new Timestamp(person.getBirth_Date().getTime()), person.getId()} );
 	}
 }
 
