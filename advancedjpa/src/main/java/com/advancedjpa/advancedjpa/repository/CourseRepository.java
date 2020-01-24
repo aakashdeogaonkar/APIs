@@ -32,5 +32,29 @@ public class CourseRepository {
 		}
 		return course;
 	}
+	
+	public void entityManagerFunctions() {
+		Course course1 = new Course("Angular JS");
+		em.persist(course1);
+		// em.flush();
+		
+		Course course2 = new Course("React JS");
+		em.persist(course2);
+		
+		em.flush();
+		
+		//em.clear();
+		
+		course1.setName("Angular JS - Updated");
+		// em.flush();
+		
+		// em.detach(course2);
+		
+		course2.setName("React JS - Updated");
+		
+		em.refresh(course1);
+		
+		em.flush(); 
+	}
 
 }

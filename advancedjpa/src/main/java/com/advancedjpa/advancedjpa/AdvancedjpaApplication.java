@@ -29,6 +29,7 @@ public class AdvancedjpaApplication implements CommandLineRunner {
 		// repository.deleteById(6225);
 		repository.save(new Course("Web Design and User Expeience"));
 		repository.save(new Course((long) 1, "BA"));
+		repository.entityManagerFunctions();
 	}
 
 }
