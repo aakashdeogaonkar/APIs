@@ -32,5 +32,18 @@ class CourseRepositoryTest {
 		repository.deleteById(5100);
 		assertNull(repository.findById(5100));		
 	}
+	
+	@Test
+	@DirtiesContext
+	void updateByIdTest() {
+		Course course = repository.findById(1);
+		assertEquals("BA", course.getName());
+		
+		course.setName("BA&I");
+		repository.save(course);
+		
+		Course course1 = repository.findById(1);
+		assertEquals("BA&I", course1.getName());
+	}
 
 }

@@ -9,7 +9,7 @@ public class Course {
 	
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	private String name;
 	
 	protected Course() {
@@ -20,7 +20,13 @@ public class Course {
 		this.name = name;
 	}
 
-	public long getId() {
+	public Course(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
