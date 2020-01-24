@@ -25,7 +25,7 @@ public class AdvancedjpaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("Course with id 6225 -> {}", repository.findById(6225));
-		
+		// repository.deleteById(6225);
 	}
 
 }
