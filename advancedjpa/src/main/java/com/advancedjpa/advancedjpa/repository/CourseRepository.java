@@ -55,6 +55,9 @@ public class CourseRepository {
 		em.refresh(course1);
 		
 		em.flush(); 
+		
+		Course course3 = findById(6225);
+		course3.setName("Advanced Cloud Computing");
 	}
 
 }
