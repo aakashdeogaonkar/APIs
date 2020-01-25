@@ -6,11 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
+@NamedQueries(value= {@NamedQuery(name="query_getAllCourses" , query="select c from Course c"),
+		@NamedQuery(name="query_getnamelike%JS", query="Select c from Course c WHERE name like '% JS'")})
 public class Course {
 	
 	@Id
