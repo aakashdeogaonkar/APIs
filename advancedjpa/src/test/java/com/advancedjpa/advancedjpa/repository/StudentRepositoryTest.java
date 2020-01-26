@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.advancedjpa.advancedjpa.AdvancedjpaApplication;
 import com.advancedjpa.advancedjpa.entity.Course;
+import com.advancedjpa.advancedjpa.entity.Passport;
 import com.advancedjpa.advancedjpa.entity.Student;
 
 @SpringBootTest(classes=AdvancedjpaApplication.class)
@@ -34,6 +35,29 @@ class StudentRepositoryTest {
 	void findByStudentandPassportTest() {
 		Student student = studentrepository.findById(20001);
 		logger.info("Student with ID 20001 -> {}", student);
-		logger.info("Passport Details of Student with ID 2001 -> {}",student.getPassport());
+		logger.info("Passport Details of Student with ID 20001 -> {}",student.getPassport());
+	}
+	
+	@Test
+	@Transactional
+	void updateStudentAndPassword() {
+		Student student = studentrepository.findById(20002);
+		
+		Passport passport = student.getPassport();
+		
+		student.setName("Mike - Updated");
+		
+		passport.setNumber("B123456 - Updated");
+		
+		logger.info("Student's name with id 20002 -> {}", student);
+		logger.info("Student's passport details with id 20002 -> {}", passport);
+	}
+	
+	@Test
+	@Transactional
+	void retrievePassportDetailsAndStudentAssociatedTest() {
+		Passport passport = em.find(Passport.class, 40001L);
+		logger.info("Passport with ID 40001 -> {}", passport);
+		logger.info("Student Details of Passport with ID 40001 -> {}",passport.getStudent());
 	}
 }
