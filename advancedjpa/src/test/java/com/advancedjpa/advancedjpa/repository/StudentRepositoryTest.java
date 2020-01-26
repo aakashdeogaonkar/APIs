@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -29,6 +30,7 @@ class StudentRepositoryTest {
 	EntityManager em;
 
 	@Test
+	@Transactional
 	void findByStudentandPassportTest() {
 		Student student = studentrepository.findById(20001);
 		logger.info("Student with ID 20001 -> {}", student);
