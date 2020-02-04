@@ -10,6 +10,6 @@ insert into student (id, name, passport_id) values (20001, 'John', 40001);
 insert into student (id, name, passport_id) values (20002, 'Mike', 40002);
 insert into student (id, name, passport_id) values (20003, 'Joe',  40003);
 
-insert into review (id, rating, description) values (50001, '5', 'Great Course');
-insert into review (id, rating, description) values (50002, '2', 'Needs Improvement');
-insert into review (id, rating, description) values (50003, '4', 'Good');
+insert into review (id, rating, description, course_id) values (50001, '5', 'Great Course', 6225);
+insert into review (id, rating, description, course_id) values (50002, '2', 'Needs Improvement', 6225);
+insert into review (id, rating, description, course_id) values (50003, '4', 'Good', 6250);
