@@ -62,7 +62,8 @@ public class AdvancedjpaApplication implements CommandLineRunner {
 		employeeRepository.insertEmployees(new PartTimeEmployee("Jill", new BigDecimal("50")));
 		employeeRepository.insertEmployees(new FullTimeEmployee("Jack", new BigDecimal("100000")));
 		
-		logger.info("All Employees -> {}", employeeRepository.getAllEmployees());
+		logger.info("All Full Time Employees -> {}", employeeRepository.getAllFullTimeEmployees());
+		logger.info("All Part Time Employees -> {}", employeeRepository.getAllPartTimeEmployees());
 	}
 
 }

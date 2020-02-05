@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import com.advancedjpa.advancedjpa.entity.Course;
 import com.advancedjpa.advancedjpa.entity.Employee;
+import com.advancedjpa.advancedjpa.entity.FullTimeEmployee;
+import com.advancedjpa.advancedjpa.entity.PartTimeEmployee;
 import com.advancedjpa.advancedjpa.entity.Review;
 
 @Transactional
@@ -24,8 +26,12 @@ public class EmployeeRepository {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public List<Employee> getAllEmployees() {
-		return em.createQuery("select e from Employee e", Employee.class).getResultList();
+	public List<PartTimeEmployee> getAllPartTimeEmployees() {
+		return em.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
+	}
+	
+	public List<FullTimeEmployee> getAllFullTimeEmployees() {
+		return em.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
 	}
 	
 	public void insertEmployees(Employee employee) {
