@@ -77,5 +77,38 @@ class JPQLTest {
 		List<Student> resultList = query.getResultList();
 		logger.info("Students with passport 1234 -> {}", resultList);
 	}
+	
+	@Test
+	void join_coursewithstudent() {
+		Query query = em.createQuery("select c,s from Course c JOIN c.students s");
+		List<Object[]> resultList = query.getResultList();
+		logger.info("Result size -> {}",resultList.size());
+		
+		for(Object[] result: resultList) {
+			logger.info("Course{} Student{}", result[0], result[1]);
+		}
+	}
+	
+	@Test
+	void left_join_coursewithstudent() {
+		Query query = em.createQuery("select c,s from Course c LEFT JOIN c.students s");
+		List<Object[]> resultList = query.getResultList();
+		logger.info("Result size -> {}",resultList.size());
+		
+		for(Object[] result: resultList) {
+			logger.info("Course{} Student{}", result[0], result[1]);
+		}
+	}
+	
+	@Test
+	void cross_join_coursewithstudent() {
+		Query query = em.createQuery("select c,s from Course c, Student s");
+		List<Object[]> resultList = query.getResultList();
+		logger.info("Result size -> {}",resultList.size());
+		
+		for(Object[] result: resultList) {
+			logger.info("Course{} Student{}", result[0], result[1]);
+		}
+	}
 
 }
