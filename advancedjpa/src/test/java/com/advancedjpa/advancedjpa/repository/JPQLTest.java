@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.advancedjpa.advancedjpa.AdvancedjpaApplication;
 import com.advancedjpa.advancedjpa.entity.Course;
+import com.advancedjpa.advancedjpa.entity.Student;
 
 @SpringBootTest(classes=AdvancedjpaApplication.class)
 class JPQLTest {
@@ -47,6 +48,34 @@ class JPQLTest {
 		TypedQuery<Course> query = em.createNamedQuery("query_getnamelike%JS", Course.class);
 		List resultList = query.getResultList();
 		logger.info("Select c from Course c WHERE name like '%JS' -> {}", resultList);		
+	}
+	
+	@Test
+	void courses_without_students() {
+		TypedQuery<Course> query = em.createQuery("select c from Course c where c.students is empty", Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info("Courses without Students -> {}", resultList);
+	}
+	
+	@Test
+	void courses_withatleasttwo_students() {
+		TypedQuery<Course> query = em.createQuery("select c from Course c where size(c.students) >= 2", Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info("Courses with at least 2 Students -> {}", resultList);
+	}
+	
+	@Test
+	void courses_ordered_by_students() {
+		TypedQuery<Course> query = em.createQuery("select c from Course c order by size(c.students) desc", Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info("Courses ordered by students -> {}", resultList);
+	}
+	
+	@Test
+	void students_with_passport_certain_order() {
+		TypedQuery<Student> query = em.createQuery("select s from Student s where s.passport.number like '%1234%'", Student.class);
+		List<Student> resultList = query.getResultList();
+		logger.info("Students with passport 1234 -> {}", resultList);
 	}
 
 }
