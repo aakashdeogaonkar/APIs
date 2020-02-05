@@ -60,4 +60,20 @@ class StudentRepositoryTest {
 		logger.info("Passport with ID 40001 -> {}", passport);
 		logger.info("Student Details of Passport with ID 40001 -> {}",passport.getStudent());
 	}
+	
+	@Test
+	@Transactional
+	public void retrieveStudentAndAssociatedCourse() {
+		Student s1 = em.find(Student.class, 20001L);
+		logger.info("Student with ID 20001 -> {}",s1);
+		logger.info("Courses of Student with ID 20001 -> {}",s1.getCourses());
+	}
+	
+	@Test
+	@Transactional
+	public void retrieveCourseAndAssociatedStudent() {
+		Course c1 = em.find(Course.class, 6225L);
+		logger.info("Course with id 6225 -> {}", c1);
+		logger.info("Students of Course with ID 6225 -> {}", c1.getStudents());
+	}
 }

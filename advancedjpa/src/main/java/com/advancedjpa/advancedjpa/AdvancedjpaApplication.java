@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.advancedjpa.advancedjpa.entity.Course;
 import com.advancedjpa.advancedjpa.entity.Review;
+import com.advancedjpa.advancedjpa.entity.Student;
 import com.advancedjpa.advancedjpa.repository.CourseRepository;
 import com.advancedjpa.advancedjpa.repository.StudentRepository;
 
@@ -42,11 +43,14 @@ public class AdvancedjpaApplication implements CommandLineRunner {
 //		studrepository.saveStudentWithPassword();
 		
 //		repository.addHardCodedReviewsForCourse();
-		List<Review> review = new ArrayList<>();
-		review.add(new Review("Practical work", "4"));
-		review.add(new Review("Great Teaching", "5"));
+//		List<Review> review = new ArrayList<>();
+//		review.add(new Review("Practical work", "4"));
+//		review.add(new Review("Great Teaching", "5"));
+//		
+//		repository.addReviewsForCourse(5100L, review);
 		
-		repository.addReviewsForCourse(5100L, review);
+//		studrepository.insertStudentAndCourseHardCodedValue();
+		studrepository.insertStudentandCourse(new Student("San"), new Course("BA"));
 	}
 
 }
