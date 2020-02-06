@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
@@ -50,6 +51,11 @@ public class Course {
 	private LocalDateTime lastUpdatedDate;
 	
 	private boolean isDeleted;
+	
+	@PreRemove
+	private void preRemove() {
+		this.isDeleted = true;
+	}
 	
 	protected Course() {
 		

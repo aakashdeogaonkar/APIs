@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,9 @@ public class Student {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@Embedded
+	private Address address;
 	
 	@Column(name="name")
 	private String name;
@@ -81,6 +85,14 @@ public class Student {
 	
 	public void removeCourses(Course courses) {
 		this.courses.remove(courses);
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override

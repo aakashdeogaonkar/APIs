@@ -15,6 +15,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.advancedjpa.advancedjpa.AdvancedjpaApplication;
+import com.advancedjpa.advancedjpa.entity.Address;
 import com.advancedjpa.advancedjpa.entity.Course;
 import com.advancedjpa.advancedjpa.entity.Passport;
 import com.advancedjpa.advancedjpa.entity.Student;
@@ -75,5 +76,15 @@ class StudentRepositoryTest {
 		Course c1 = em.find(Course.class, 6225L);
 		logger.info("Course with id 6225 -> {}", c1);
 		logger.info("Students of Course with ID 6225 -> {}", c1.getStudents());
+	}
+	
+	@Test
+	@Transactional
+	void setAddressDetails() {
+		Student student = em.find(Student.class, 20001L);
+		student.setAddress(new Address("100", "Madison Avenue", "New York"));
+		em.flush();
+		logger.info("Student -> {}", student);
+		logger.info("Passport -> {}",student.getPassport());
 	}
 }
