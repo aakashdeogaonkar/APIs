@@ -3,6 +3,7 @@ package com.advancedjpa.advancedjpa.repository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -36,6 +37,12 @@ class CourseSpringDataRepositoryTest {
 	@Test
 	public void coursePresent() {
 		Optional<Course> findById = repository.findById(6225L);
+	}
+	
+	@Test
+	public void findByName() {
+		List<Course> findByName = repository.findByName("AED");
+		logger.info("FindByName -> {}", findByName);
 	}
 	
 	@Test
