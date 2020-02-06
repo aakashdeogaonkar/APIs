@@ -1,6 +1,20 @@
 insert into course (id,name,created_date,last_updated_date) values (6225, 'Cloud Computing', sysdate(), sysdate());
 insert into course (id,name,created_date,last_updated_date) values (5100, 'AED', sysdate(), sysdate());
 insert into course (id,name,created_date,last_updated_date) values (6250, 'Web Tools and Methods', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1001, 'Test1', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1002, 'Test2', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1003, 'Test3', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1004, 'Test4', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1005, 'Test5', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1006, 'Test6', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1007, 'Test7', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1008, 'Test8', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1009, 'Test9', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1010, 'Test10', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1011, 'Test11', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1012, 'Test12', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1013, 'Test13', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date) values (1014, 'Test14', sysdate(), sysdate());
 
 insert into passport (id, number) values (40001, 'A123456');
 insert into passport (id, number) values (40002, 'B123456');
