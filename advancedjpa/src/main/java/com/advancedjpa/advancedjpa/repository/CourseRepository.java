@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.advancedjpa.advancedjpa.entity.Course;
 import com.advancedjpa.advancedjpa.entity.Review;
+import com.advancedjpa.advancedjpa.entity.ReviewRating;
 
 @Transactional
 @Repository
@@ -73,8 +74,8 @@ public class CourseRepository {
 		logger.info("Reviews for course 6250 -> {}",c1.getReviews());
 		
 		//Adding Reviews
-		Review review1 = new Review("Practical work", "4");
-		Review review2 = new Review("Great Teaching", "5");
+		Review review1 = new Review("Practical work", ReviewRating.FOUR);
+		Review review2 = new Review("Great Teaching", ReviewRating.FIVE);
 		
 		//Setting review to course relationship
 		c1.addReviews(review1);
