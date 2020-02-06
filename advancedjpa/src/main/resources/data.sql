@@ -1,6 +1,6 @@
-insert into course (id,name,created_date,last_updated_date) values (6225, 'Cloud Computing', sysdate(), sysdate());
-insert into course (id,name,created_date,last_updated_date) values (5100, 'AED', sysdate(), sysdate());
-insert into course (id,name,created_date,last_updated_date) values (6250, 'Web Tools and Methods', sysdate(), sysdate());
+insert into course (id,name,created_date,last_updated_date, is_deleted) values (6225, 'Cloud Computing', sysdate(), sysdate(), false);
+insert into course (id,name,created_date,last_updated_date, is_deleted) values (5100, 'AED', sysdate(), sysdate(), false);
+insert into course (id,name,created_date,last_updated_date, is_deleted) values (6250, 'Web Tools and Methods', sysdate(), sysdate(), false);
 
 insert into passport (id, number) values (40001, 'A123456');
 insert into passport (id, number) values (40002, 'B123456');
