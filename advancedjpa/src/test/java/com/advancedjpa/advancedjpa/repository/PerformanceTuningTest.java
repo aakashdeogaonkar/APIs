@@ -52,7 +52,7 @@ class PerformanceTuningTest {
 		for(Course course: courses) {
 			logger.info("Course -> {}, Students -> {}", course, course.getStudents());
 		}	
-	}
+	} 
 	
 	@Test
 	@Transactional
